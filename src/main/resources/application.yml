@@ -8,3 +8,5 @@ spring:
 logging:
   pattern:
     console: "%highlight(%-5level) %d{HH:mm:ss.SSS}[%green(%thread)]%magenta(%logger{36}) %msg %n"
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
