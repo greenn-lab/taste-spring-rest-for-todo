@@ -1,0 +1,30 @@
+### 목록
+GET {{host}}/todos
+Content-Type: application/json
+
+### 목록 title 검색
+GET {{host}}/todos/search/title?keyword=he
+Content-Type: application/json
+
+### 첫번째 TODO 조회 (응답 해더 중 ETag 확인)
+GET {{host}}/todos/1
+
+### 첫번째 TODO 수정 실패 (응답 코드 412)
+PUT {{host}}/todos/1
+Content-Type: application/json
+If-Match: "XXX"
+
+{
+  "title": "hi",
+  "completed": false
+}
+
+### 첫번째 TODO 수정 성공
+PUT {{host}}/todos/1
+Content-Type: application/json
+If-Match: "0"
+
+{
+  "title": "hi",
+  "completed": false
+}
