@@ -1,10 +1,13 @@
 package study.tastespringrest.todo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.rest.core.annotation.RestResource;
+
+import java.util.List;
 
 public interface TodoRepository extends JpaRepository<Todo, Long> {
 
-  // TODO 검색조건 만들어보기
-
+  @RestResource(path = "title")
+  List<Todo> findByTitleContains(String keyword);
 
 }
